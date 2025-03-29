@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlatformEvent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <eventType>HighVolume</eventType>
+    <label>RiskAlertEvent</label>
+    <pluralLabel>RiskAlertEvents</pluralLabel>
+    <fields>
+        <fullName>RiskLevel__c</fullName>
+        <label>Risk Level</label>
+        <type>Text</type>
+        <length>10</length>
+    </fields>
+</PlatformEvent>

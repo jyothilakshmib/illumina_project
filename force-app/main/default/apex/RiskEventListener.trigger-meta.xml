@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Trigger xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexClass>RiskEventListener</apexClass>
+    <isActive>true</isActive>
+    <events>
+        <event>after insert</event>
+    </events>
+</Trigger>

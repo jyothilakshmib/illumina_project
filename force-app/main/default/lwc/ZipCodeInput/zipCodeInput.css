@@ -1,0 +1,64 @@
+.input-row {
+    display: flex;
+    align-items: stretch; 
+    gap: 10px; 
+}
+
+.flex-col {
+    display: flex;
+    align-items: center; 
+    height: 100%; 
+}
+
+.mui-container {
+    padding: 20px;
+}
+
+.mui-table--bordered th, .mui-table--bordered td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.mui-table--bordered th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.mui-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    position: static;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.result-box {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.mui-textfield-padding{
+    padding: 7px !important;
+}
+
+.floating-label-container {
+    position: relative;
+    width: 100%;
+}
+
+.no-label .slds-form-element__label {
+    display: none;
+}
+
+:host {
+    --mui-textfield-padding: 7px;
+}
+
+

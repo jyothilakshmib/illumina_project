@@ -1,0 +1,135 @@
+<template>
+    <lightning-card title="Search Zip Code">
+        <div class="mui-container">
+            
+            <!-- MUI Tabs -->
+            <div class="mui-tabs">
+                <button 
+                    class={usTabClass} 
+                    data-tab="usData"
+                    onclick={handleTabClick}>
+                    US Data
+                </button>
+                <button 
+                    class={nonUsTabClass} 
+                    data-tab="nonUsData"
+                    onclick={handleTabClick}>
+                    Non-US Data
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="mui-tab-content">
+                <!-- US Data Tab -->
+                <template if:true={isUsTabActive}>
+                        <div class="mui-col-12 mui--text-left">
+                            <div class="mui-col-md-12 flex-row">
+                                <label for="zipCode" class="mui-label">Zip Code</label>
+                                <input type="text" class="mui-textfield mui-textfield-padding full-width" 
+                                    id="zipCode" 
+                                    placeholder="Enter Zip Code" 
+                                    onchange={handleZipCodeChange} />
+                            </div>
+            
+                            <!-- Country Dropdown -->
+                            <div class="mui-col-md-12 flex-row hide-label">
+                                <lightning-combobox
+                                    class="full-width"
+                                    value={countryCode}
+                                    options={countryOptions}
+                                    label="Choose a country"
+                                    onchange={handleCountryChange}
+                                    >
+                                </lightning-combobox>
+                            </div>
+            
+                            <!-- Search Button -->
+                            <div class="mui-col-md-12 flex-row">
+                                <button class="mui-btn mui-btn--raised mui-btn--primary full-width" 
+                                    onclick={handleButtonClick}>
+                                    Get Information
+                                </button>
+                            </div>
+                        </div>
+            
+                        <div class="mui-col-12 mui--text-left flex-row">
+                            <template if:true={apiResponse}>
+                                <div class="mui-table">
+                                        <table class="mui-table--bordered mui-table--hoverable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Field</th>
+                                                    <th>Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Country</strong></td>
+                                                    <td>{apiResponse.country}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Place Name</strong></td>
+                                                    <td>{apiResponse.places.placeName}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>State</strong></td>
+                                                    <td>{apiResponse.places.state}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Latitude</strong></td>
+                                                    <td>{apiResponse.places.latitude}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Longitude</strong></td>
+                                                    <td>{apiResponse.places.longitude}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </template>
+                        </div>
+                </template>
+
+                <!-- Non-US Data Tab -->
+                <template if:true={isNonUsTabActive}>
+                    <div class="mui-col-12 mui--text-left flex-row">
+                        <template if:true={nonUsData}>
+                            <div class="mui-table">
+                                    <table class="mui-table--bordered mui-table--hoverable">
+                                        <thead>
+                                            <tr>
+                                                <th>Field</th>
+                                                <th>Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Country</strong></td>
+                                                <td>{nonUsData.country}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Place Name</strong></td>
+                                                <td>{nonUsData.places.placeName}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>State</strong></td>
+                                                <td>{nonUsData.places.state}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Latitude</strong></td>
+                                                <td>{nonUsData.places.latitude}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Longitude</strong></td>
+                                                <td>{nonUsData.places.longitude}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
